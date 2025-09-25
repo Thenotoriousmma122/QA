@@ -64,6 +64,8 @@ async def back_to_categories(callback: CallbackQuery):
 '''''
 
 
+
+
 @client.callback_query(F.data.startswith('card_'))
 async def card_info(callback: CallbackQuery):
     await callback.answer()
@@ -212,6 +214,9 @@ async def get_photo(message:Message):
     file_id = message.photo[-1].file_id
     await message.answer(file_id)
 
+@client.message(F.text == 'Лес')
+async def send_photo(message: Message):
+    await message.answer_photo(photo='AgACAgIAAxkBAAIDY2iHXn9FaiO-WZKD8zmlUXbWRBIAA87yMRuvLzlIOV-_jdlzqrABAAMCAAN5AAM2BA')
 
 
 '''''
@@ -219,10 +224,6 @@ async def get_photo(message:Message):
 async def send_photo(message: Message):
     await message.answer_photo(photo='AgACAgIAAxkBAAIDXWiHXi4M2RklAAGJ5dpQK0MPGdeQQQACyvIxG68vOUhv2t1-yr7hiwEAAwIAA3kAAzYE')
 
-
-@client.message(F.text == 'Лес')
-async def send_photo(message: Message):
-    await message.answer_photo(photo='AgACAgIAAxkBAAIDY2iHXn9FaiO-WZKD8zmlUXbWRBIAA87yMRuvLzlIOV-_jdlzqrABAAMCAAN5AAM2BA')
 
 @client.message(F.text == 'Очки')
 async def send_photo(message: Message):
